@@ -1,0 +1,7 @@
+libero_path ['/home/shrutiw/projects/LIBERO/libero']
+benchmark_keys ['libero_10', 'libero_100', 'libero_90', 'libero_goal', 'libero_object', 'libero_spatial']
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+n_tasks 10
+task_language pick up the black bowl between the plate and the ramekin and place it on the plate
+task_problem_folder libero_spatial
+task_bddl_file pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl

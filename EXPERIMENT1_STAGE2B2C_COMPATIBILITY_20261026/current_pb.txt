@@ -1,0 +1,31 @@
+Name: protobuf
+Version: 3.20.3
+Summary: Protocol Buffers
+Home-page: https://developers.google.com/protocol-buffers/
+Author: 
+Author-email: 
+License: BSD-3-Clause
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: 
+Required-by: googleapis-common-protos, opentelemetry-proto, openvla-oft, tensorboard, tensorflow, tensorflow-datasets, tensorflow-metadata, wandb
+---
+Name: tensorflow-datasets
+Version: 4.9.10
+Summary: tensorflow/datasets is a library of datasets ready to use with TensorFlow.
+Home-page: https://github.com/tensorflow/datasets
+Author: Google Inc.
+Author-email: packages@tensorflow.org
+License: Apache 2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: absl-py, array_record, dm-tree, etils, immutabledict, numpy, promise, protobuf, psutil, pyarrow, requests, simple_parsing, tensorflow-metadata, termcolor, toml, tqdm, wrapt
+Required-by: dlimp, openvla-oft
+---
+Name: tensorflow-metadata
+Version: 1.21.0
+Summary: Library and standards for schema and statistics.
+Home-page: 
+Author: Google Inc.
+Author-email: tensorflow-extended-dev@googlegroups.com
+License: Apache 2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: absl-py, protobuf

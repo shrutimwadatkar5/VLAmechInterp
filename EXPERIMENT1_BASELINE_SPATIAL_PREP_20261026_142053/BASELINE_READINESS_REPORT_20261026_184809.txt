@@ -1,0 +1,81 @@
+EXPERIMENT 1 — OpenVLA-OFT LIBERO Spatial Baseline Readiness Report
+Timestamp: 2026-10-26 18:48 IST
+Host: bionlp, NVIDIA A100-PCIE-40GB
+Scope: clean, unperturbed baseline only; no training, no adversarial patches, no physical robot
+
+STATUS
+------
+READY TO RUN, BLOCKED BY GPU CAPACITY.
+No baseline inference has been run yet. No model weights have been loaded.
+
+COMPLETED
+---------
+1. Isolated environment
+   - Created /home/shrutiw/projects/openvla-oft/.venv_libero with --system-site-packages.
+   - Base openvla_oft env remains unchanged: numpy 1.26.4, scipy 1.15.3,
+     torch 2.2.0+cu121, transformers 4.40.1, protobuf 4.25.5,
+     tensorflow 2.15.0, tensorflow-metadata 1.17.3.
+   - LIBERO/sim packages are not installed in the base env.
+
+2. LIBERO
+   - Cloned to /home/shrutiw/projects/LIBERO.
+   - Package installed editable into .venv_libero.
+   - Pinned sim stack: mujoco 2.3.7, robosuite 1.4.1, bddl 3.6.0,
+     opencv-python 4.10.0.84, numba 0.60.0, llvmlite 0.43.0,
+     gym 0.26.2, imageio-ffmpeg 0.6.0, nltk 3.8.1.
+   - Created /home/shrutiw/.libero/config.yaml with default LIBERO paths.
+
+3. Environment validation
+   - libero_spatial loads 10 tasks.
+   - Task 0 language: "pick up the black bowl between the plate and the ramekin
+     and place it on the plate".
+   - Headless OffScreenRenderEnv smoke test passed with EGL:
+     MUJOCO_GL=egl, PYOPENGL_PLATFORM=egl, MUJOCO_EGL_DEVICE_ID=0.
+   - agentview and wrist images present, shape (256, 256, 3).
+
+4. Checkpoint
+   - Downloaded to:
+     /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial
+   - 19 files, ~15 GB.
+   - lora_adapter intentionally excluded (use_film=False).
+   - SHA-256 values for the four model shards, action head, and proprio projector
+     match the Hugging Face LFS hashes exactly.
+   - AutoProcessor and AutoConfig load successfully from the local checkpoint.
+   - dataset_statistics.json contains "libero_spatial_no_noops"; the eval
+     fallback correctly maps libero_spatial to that key.
+
+5. Run launcher
+   - /home/shrutiw/projects/openvla-oft/EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/run_baseline_spatial.sh
+   - Refuses to start unless GPU free memory is >= 20,000 MiB.
+   - Sets EGL/LIBERO environment and uses the local checkpoint.
+
+GPU BLOCKER
+-----------
+A100 total: 40,960 MiB
+Used:       31,224 MiB
+Free:        9,115 MiB
+Utilization: 100%
+
+Active other-user jobs:
+  PID 3711929  rasel  aceseg.train        19,558 MiB  ~8h16m
+  PID 3770063  rasel  train.py ... LFC    11,636 MiB  ~6h35m
+
+A 7B bf16 baseline needs roughly 16-20 GB free. The current 9.1 GB is not enough.
+These are other users' active training jobs and must not be killed.
+
+RESUME COMMAND
+--------------
+Smoke baseline (10 episodes, 1 trial/task):
+  cd /home/shrutiw/projects/openvla-oft
+  ./EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/run_baseline_spatial.sh 1 baseline_spatial_smoke
+
+Full baseline (500 episodes, 50 trials/task), only after smoke passes:
+  cd /home/shrutiw/projects/openvla-oft
+  ./EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/run_baseline_spatial.sh 50 baseline_spatial_full
+
+NOTES
+-----
+- venv pip check still reports only the two pre-existing FastAPI/OpenTelemetry
+  conflicts; these are unrelated and also present in the base env.
+- No tracked repository files were modified. New artifacts are untracked.
+- No training, adversarial patch work, or physical robot actions were performed.

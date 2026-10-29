@@ -1,0 +1,8 @@
+Collecting tensorflow-metadata==1.14.0
+  Using cached tensorflow_metadata-1.14.0-py3-none-any.whl.metadata (2.1 kB)
+Collecting absl-py<2.0.0,>=0.9 (from tensorflow-metadata==1.14.0)
+  Using cached absl_py-1.4.0-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: googleapis-common-protos<2,>=1.52.0 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from tensorflow-metadata==1.14.0) (1.62.0)
+Collecting protobuf<4.21,>=3.20.3 (from tensorflow-metadata==1.14.0)
+  Using cached protobuf-3.20.3-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (679 bytes)
+Would install absl-py-1.4.0 protobuf-3.20.3 tensorflow-metadata-1.14.0

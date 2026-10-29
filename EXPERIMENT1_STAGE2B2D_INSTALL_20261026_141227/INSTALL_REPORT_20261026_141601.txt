@@ -1,0 +1,263 @@
+EXPERIMENT 1 - STAGE 2B-2D: APPROVED INSTALL AND SHIM REMOVAL
+=============================================================
+Generated: 2026-10-26T14:16:01+05:30
+Host: bionlp
+User: shrutiw
+Repository: /home/shrutiw/projects/openvla-oft
+Environment: /home/shrutiw/miniconda3/envs/openvla_oft
+Report directory: /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2D_INSTALL_20261026_141227
+
+Scope:
+  - Executed the approved dependency change.
+  - Verified the environment before and after.
+  - Performed the reversible shim test and removed the shim only after
+    every import check passed.
+  - No model weights were loaded; no inference was run.
+  - No repository source file was changed.
+  - No other conda environment or research project was touched.
+
+
+1. APPROVED COMMAND EXECUTED
+----------------------------
+/home/shrutiw/miniconda3/envs/openvla_oft/bin/python -m pip install \
+  'tensorflow-metadata==1.17.3' 'protobuf==4.25.5' 'tensorflow-datasets==4.9.3'
+
+Exit code: 0
+Install output artifact: install_output.txt
+
+Installer result:
+  Successfully uninstalled tensorflow-metadata-1.21.0
+  Successfully installed tensorflow-metadata-1.17.3
+
+Only tensorflow-metadata changed. protobuf and tensorflow-datasets were
+already satisfied at the pinned versions.
+
+
+2. PRE-INSTALL STATE
+--------------------
+protobuf==4.25.5
+tensorflow==2.15.0
+tensorflow-datasets==4.9.3
+tensorflow-metadata==1.21.0
+absl-py==2.5.1
+googleapis-common-protos==1.62.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-proto==1.21.0
+opentelemetry-exporter-otlp-common==0.66b1
+wandb==0.16.6
+fastapi==0.162.0
+transformers==4.40.1
+dlimp==0.0.1
+openvla-oft==0.0.1
+torch==2.2.0+cu121
+torchvision==0.17.0+cu121
+torchaudio==2.2.0+cu121
+
+Pre-install pip check (exit 1):
+  fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have
+  opentelemetry-api 1.21.0.
+  opentelemetry-exporter-otlp-common 0.66b1 has requirement
+  opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+
+Pre-install imports:
+  prismatic: exit 0
+  from experiments.robot.openvla_utils import get_vla: exit 0
+
+Pre-install shim:
+  path: .../site-packages/google/protobuf/runtime_version.py
+  size: 354 bytes
+  sha256: 08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50
+
+Shim backup created before the install:
+  /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2D_INSTALL_20261026_141227/backup/runtime_version.py
+  sha256: 08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50
+
+
+3. POST-INSTALL STATE (shim still present at this point)
+--------------------------------------------------------
+protobuf==4.25.5
+tensorflow==2.15.0
+tensorflow-datasets==4.9.3
+tensorflow-metadata==1.17.3
+absl-py==2.5.1
+googleapis-common-protos==1.62.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-proto==1.21.0
+opentelemetry-exporter-otlp-common==0.66b1
+wandb==0.16.6
+fastapi==0.162.0
+transformers==4.40.1
+dlimp==0.0.1
+openvla-oft==0.0.1
+torch==2.2.0+cu121
+torchvision==0.17.0+cu121
+torchaudio==2.2.0+cu121
+
+tensorflow_metadata module path:
+  /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/tensorflow_metadata/__init__.py
+
+Post-install imports:
+  schema_pb2: exit 0
+  tensorflow_datasets: exit 0 (4.9.3)
+  prismatic: exit 0
+  get_vla: exit 0
+
+Post-install runtime_version importer scan (source files, excluding shim):
+  no matches. The only former importers in tensorflow_metadata 1.21.0 are gone
+  after the downgrade to 1.17.3.
+
+Post-install pip check (exit 1):
+  fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have
+  opentelemetry-api 1.21.0.
+  opentelemetry-exporter-otlp-common 0.66b1 has requirement
+  opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+
+No new dependency conflict was introduced by tensorflow-metadata 1.17.3.
+
+
+4. REVERSIBLE SHIM TEST AND REMOVAL
+-----------------------------------
+The shim was renamed aside, not deleted outright:
+
+  mv .../google/protobuf/runtime_version.py \
+     .../google/protobuf/runtime_version.py.disabled
+
+Then, in fresh processes:
+
+  import google.protobuf.runtime_version
+    -> FAILED (exit 1), as expected because the shim was unavailable.
+
+  from tensorflow_metadata.proto.v0 import schema_pb2
+    -> exit 0
+
+  import tensorflow_datasets as tfds
+    -> exit 0 (4.9.3)
+
+  import prismatic
+    -> exit 0
+
+  from experiments.robot.openvla_utils import get_vla
+    -> exit 0
+
+  python -m pip check
+    -> exit 1, with only the same two FastAPI/OTel conflicts.
+
+All import checks passed, so the .disabled file was removed:
+
+  shim_removed=YES
+  shim_exists_after=NO
+
+The original shim remains recoverable from:
+  .../EXPERIMENT1_STAGE2B2D_INSTALL_20261026_141227/backup/runtime_version.py
+  sha256 08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50
+
+
+5. FINAL VERIFICATION (after shim removal)
+------------------------------------------
+Shim presence:
+  ls .../google/protobuf/runtime_version.py
+    -> No such file (exit 2)
+  find .../google/protobuf -maxdepth 1 -name 'runtime_version*'
+    -> no output
+
+  import google.protobuf.runtime_version
+    -> exit 1 (expected; no shim)
+
+Imports:
+  schema_pb2: exit 0
+  tensorflow_datasets: exit 0
+  prismatic: exit 0
+  get_vla: exit 0
+  all_imports_ok=1
+
+pip check (exit 1), only the two known conflicts:
+  fastapi 0.162.0 requires opentelemetry-api>=1.44.0; installed 1.21.0.
+  opentelemetry-exporter-otlp-common 0.66b1 requires
+  opentelemetry-sdk~=1.45.1; installed 1.21.0.
+
+Final versions:
+  protobuf==4.25.5
+  tensorflow==2.15.0
+  tensorflow-datasets==4.9.3
+  tensorflow-metadata==1.17.3
+  absl-py==2.5.1
+  googleapis-common-protos==1.62.0
+  opentelemetry-api==1.21.0
+  opentelemetry-sdk==1.21.0
+  opentelemetry-proto==1.21.0
+  opentelemetry-exporter-otlp-common==0.66b1
+  wandb==0.16.6
+  fastapi==0.162.0
+  transformers==4.40.1
+  dlimp==0.0.1
+  openvla-oft==0.0.1
+  torch==2.2.0+cu121
+  torchvision==0.17.0+cu121
+  torchaudio==2.2.0+cu121
+
+GPU:
+  CUDA 12.1, cuda_available=True, NVIDIA A100-PCIE-40GB
+
+Repository:
+  HEAD e4287e94541f459edc4feabc4e181f537cd569a8
+  git status shows only untracked experiment/report artifacts; no tracked
+  file was modified.
+
+
+6. REMAINING CONFLICTS AND NOTES
+--------------------------------
+Resolved:
+  - The google.protobuf.runtime_version dependency is gone.
+  - The temporary shim has been removed.
+  - tensorflow-metadata is now 1.17.3 on the approved protobuf 4.25.5.
+
+Still present (unchanged, separate from this repair):
+  - fastapi 0.162.0 vs opentelemetry-api 1.21.0.
+  - opentelemetry-exporter-otlp-common 0.66b1 vs opentelemetry-sdk 1.21.0.
+
+These were not changed in this stage. They were previously assessed as
+outside the verified get_vla/LIBERO import path; FastAPI is referenced only
+in vla-scripts/deploy.py. Upgrading the OTel stack to satisfy FastAPI 0.162
+would require protobuf>=5.0, which conflicts with TensorFlow 2.15 (<5.0).
+A later stage could evaluate an older FastAPI and/or removing the orphan
+otlp-common package, but that needs separate approval and testing.
+
+Durability note:
+  tensorflow-datasets 4.9.3 leaves tensorflow-metadata unpinned. A future
+  broad upgrade could reinstall 1.21.0 and reintroduce the removed shim
+  dependency. Keep the 1.17.3 pin in future install commands or use an
+  external constraints file. No repository file was changed here.
+
+
+7. LIMITATIONS
+--------------
+  - No model weights were loaded and no inference was run.
+  - No full LIBERO dataset construction or training-data pipeline was run.
+  - The verification covers import-level behavior for schema_pb2, tfds,
+    prismatic, and get_vla. It does not prove every possible code path is
+    free of runtime_version usage; the source scan found no remaining
+    importers in the installed environment.
+  - The two FastAPI/OTel metadata conflicts remain and pip check still exits 1.
+  - The shim backup is retained in the report directory, outside
+    site-packages, for recovery if ever needed.
+
+
+8. ARTIFACTS
+------------
+  install_output.txt
+  pre_shim.txt
+  pre_versions.txt
+  pre_pip_check.txt
+  pre_imports.txt
+  pre_gpu.txt
+  post_versions.txt
+  post_pip_check.txt
+  post_runtime_version_importers.txt
+  post_imports.txt
+  post_gpu.txt
+  shim_test_pre_removal.txt
+  final_verification.txt
+  backup/runtime_version.py
+  backup_sha.txt

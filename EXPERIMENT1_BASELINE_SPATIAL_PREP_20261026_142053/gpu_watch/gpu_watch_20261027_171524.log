@@ -1,0 +1,353 @@
+[2026-10-27T17:15:24+05:30] monitor started pid=1583525 interval=5400s threshold=20000MiB confirm=60s
+[2026-10-27T17:15:24+05:30] launcher=/home/shrutiw/projects/openvla-oft/EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/run_baseline_spatial.sh
+[2026-10-27T17:15:25+05:30] GPU free=7053 MiB used=33285 MiB util=100 apps=3711929, python, 19558 MiB;3770063, /home/rasel/rasel/bin/python3, 11686 MiB;1306890, /home/devraj/MTok/.mtok/bin/python3.10, 2006 MiB;
+[2026-10-27T17:15:25+05:30] sleeping 5400s
+[2026-10-27T18:45:25+05:30] GPU free=18849 MiB used=21490 MiB util=100 apps=3711929, python, 19558 MiB;1306890, /home/devraj/MTok/.mtok/bin/python3.10, 2002 MiB;
+[2026-10-27T18:45:25+05:30] sleeping 5400s
+[2026-10-27T20:15:25+05:30] GPU free=18751 MiB used=21588 MiB util=100 apps=3711929, python, 19558 MiB;1306890, /home/devraj/MTok/.mtok/bin/python3.10, 2000 MiB;
+[2026-10-27T20:15:25+05:30] sleeping 5400s
+[2026-10-27T21:45:25+05:30] GPU free=18745 MiB used=21594 MiB util=100 apps=3711929, python, 19558 MiB;1306890, /home/devraj/MTok/.mtok/bin/python3.10, 2006 MiB;
+[2026-10-27T21:45:25+05:30] sleeping 5400s
+[2026-10-27T23:15:25+05:30] GPU free=18735 MiB used=21604 MiB util=99 apps=3711929, python, 19558 MiB;1306890, /home/devraj/MTok/.mtok/bin/python3.10, 2016 MiB;
+[2026-10-27T23:15:25+05:30] sleeping 5400s
+[2026-10-28T00:45:25+05:30] GPU free=6129 MiB used=34210 MiB util=100 apps=3711929, python, 19558 MiB;1790632, /home/devraj/MTok/.mtok/bin/python3.10, 14624 MiB;
+[2026-10-28T00:45:25+05:30] sleeping 5400s
+[2026-10-28T02:15:25+05:30] GPU free=7173 MiB used=33166 MiB util=100 apps=3711929, python, 19558 MiB;1790632, /home/devraj/MTok/.mtok/bin/python3.10, 13698 MiB;
+[2026-10-28T02:15:25+05:30] sleeping 5400s
+[2026-10-28T03:45:25+05:30] GPU free=7167 MiB used=33172 MiB util=100 apps=3711929, python, 19558 MiB;1790632, /home/devraj/MTok/.mtok/bin/python3.10, 13706 MiB;
+[2026-10-28T03:45:25+05:30] sleeping 5400s
+[2026-10-28T05:15:26+05:30] GPU free=6115 MiB used=34224 MiB util=100 apps=3711929, python, 19558 MiB;1871177, /home/devraj/MTok/.mtok/bin/python3.10, 14636 MiB;
+[2026-10-28T05:15:26+05:30] sleeping 5400s
+[2026-10-28T06:45:26+05:30] GPU free=7137 MiB used=33202 MiB util=100 apps=3711929, python, 19558 MiB;1871177, /home/devraj/MTok/.mtok/bin/python3.10, 13634 MiB;
+[2026-10-28T06:45:26+05:30] sleeping 5400s
+[2026-10-28T08:15:26+05:30] GPU free=7019 MiB used=33320 MiB util=100 apps=3711929, python, 19558 MiB;1871177, /home/devraj/MTok/.mtok/bin/python3.10, 14654 MiB;
+[2026-10-28T08:15:26+05:30] sleeping 5400s
+[2026-10-28T09:45:26+05:30] GPU free=7117 MiB used=33222 MiB util=100 apps=3711929, python, 19558 MiB;1947613, /home/devraj/MTok/.mtok/bin/python3.10, 13736 MiB;
+[2026-10-28T09:45:26+05:30] sleeping 5400s
+[2026-10-28T11:15:26+05:30] GPU free=7017 MiB used=33322 MiB util=100 apps=3711929, python, 19558 MiB;1947613, /home/devraj/MTok/.mtok/bin/python3.10, 13616 MiB;
+[2026-10-28T11:15:26+05:30] sleeping 5400s
+[2026-10-28T12:45:26+05:30] GPU free=7097 MiB used=33242 MiB util=100 apps=3711929, python, 19558 MiB;1947613, /home/devraj/MTok/.mtok/bin/python3.10, 13736 MiB;
+[2026-10-28T12:45:26+05:30] sleeping 5400s
+[2026-10-28T14:15:26+05:30] GPU free=23815 MiB used=16524 MiB util=97 apps=2022387, /home/devraj/MTok/.mtok/bin/python3.10, 14610 MiB;2030859, python, 1886 MiB;
+[2026-10-28T14:15:26+05:30] threshold met; confirming after 60s
+[2026-10-28T14:16:26+05:30] confirmation free=23817 MiB used=16522 MiB util=98
+[2026-10-28T14:16:26+05:30] launching smoke test run_note=baseline_spatial_smoke_auto_20261028_141626
+GPU free memory: 23817 MiB (minimum required: 20000 MiB)
+2026-10-28 14:16:30.319136: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-28 14:16:30.359057: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-28 14:16:30.359126: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-28 14:16:30.360467: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-28 14:16:30.366898: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-28 14:16:31.800093: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+Instantiating pretrained VLA policy...
+Created backup of original config at: /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial/config.json.back.20261028_141649
+Updated config.json at: /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial/config.json
+Changes made:
+  - Set AutoConfig to "configuration_prismatic.OpenVLAConfig"
+  - Set AutoModelForVision2Seq to "modeling_prismatic.OpenVLAForActionPrediction"
+
+------------------------------------------------------------------------------------------------
+Found mismatch between:
+Current:   ./prismatic/extern/hf/modeling_prismatic.py
+Checkpoint: /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial/modeling_prismatic.py
+
+Created backup of original checkpoint file at: /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial/modeling_prismatic.py.back.20261028_141649
+Copied current version to checkpoint at: /home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial/modeling_prismatic.py
+Changes complete. The checkpoint will now use the current version of modeling_prismatic.py
+------------------------------------------------------------------------------------------------
+
+10/28 [14:16:49] WARNING  | >> Expected                modeling_prismatic.py:332
+                          `transformers==4.40.1` and                            
+                          `tokenizers==0.19.1` but got                          
+                          `transformers==4.44.2` and                            
+                          `tokenizers==0.19.1`; there                           
+                          might be inference-time                               
+                          regressions due to                                    
+                          dependency changes. If in                             
+                          doubt, pleaseuse the above                            
+                          versions.                                             
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.51s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.10s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.40it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]
+Loaded model: <class 'transformers_modules.openvla-7b-oft-finetuned-libero-spatial.modeling_prismatic.OpenVLAForActionPrediction'>
+10/28 [14:18:10] INFO     | >> Logging to local log file: run_libero_eval.py:206
+                          /home/shrutiw/projects/openvla-                       
+                          oft/EXPERIMENT1_BASELINE_SPATIA                       
+                          L_PREP_20261026_142053/baseline                       
+                          _logs/EVAL-libero_spatial-openv                       
+                          la-2026_10_28-14_16_49--baselin                       
+                          e_spatial_smoke_auto_20261028_1                       
+                          41626.txt                                             
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                 INFO     | >> Task suite: libero_spatial run_libero_eval.py:221
+  0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:18:15] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl                          
+                          between the plate and the                             
+                          ramekin and place it on the                           
+                          plate                                                 
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=1--success=False--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4
+10/28 [14:18:41] INFO     | >> Success: False             run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 1                                                
+                 INFO     | >> # successes: 0 (0.0%)      run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:25<00:00, 25.88s/it][A100%|██████████| 1/1 [00:25<00:00, 25.88s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          0.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.0                                             
+ 10%|█         | 1/10 [00:30<04:36, 30.70s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:18:44] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl                          
+                          next to the ramekin and place                         
+                          it on the plate                                       
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=2--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4
+10/28 [14:19:00] INFO     | >> Success: False             run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 2                                                
+                 INFO     | >> # successes: 0 (0.0%)      run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:15<00:00, 15.74s/it][A100%|██████████| 1/1 [00:15<00:00, 15.74s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          0.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.0                                             
+ 20%|██        | 2/10 [00:49<03:09, 23.73s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:19:03] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl                          
+                          from table center and place it                        
+                          on the plate                                          
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=3--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4
+10/28 [14:19:12] INFO     | >> Success: True              run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 3                                                
+                 INFO     | >> # successes: 1 (33.3%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:09<00:00,  9.06s/it][A100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          1.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.3333333333333333                              
+ 30%|███       | 3/10 [01:01<02:09, 18.45s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:19:15] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl on                       
+                          the cookie box and place it on                        
+                          the plate                                             
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=4--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4
+10/28 [14:19:23] INFO     | >> Success: True              run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 4                                                
+                 INFO     | >> # successes: 2 (50.0%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:08<00:00,  8.33s/it][A100%|██████████| 1/1 [00:08<00:00,  8.33s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          1.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.5                                             
+ 40%|████      | 4/10 [01:13<01:33, 15.66s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:19:27] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl in                       
+                          the top drawer of the wooden                          
+                          cabinet and place it on the                           
+                          plate                                                 
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=5--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4
+10/28 [14:19:43] INFO     | >> Success: False             run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 5                                                
+                 INFO     | >> # successes: 2 (40.0%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:16<00:00, 16.61s/it][A100%|██████████| 1/1 [00:16<00:00, 16.61s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          0.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.4                                             
+ 50%|█████     | 5/10 [01:32<01:25, 17.13s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:19:46] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl on                       
+                          the ramekin and place it on the                       
+                          plate                                                 
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=6--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4
+10/28 [14:20:03] INFO     | >> Success: False             run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 6                                                
+                 INFO     | >> # successes: 2 (33.3%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:16<00:00, 16.43s/it][A100%|██████████| 1/1 [00:16<00:00, 16.43s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          0.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.3333333333333333                              
+ 60%|██████    | 6/10 [01:52<01:11, 17.94s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:20:06] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl                          
+                          next to the cookie box and                            
+                          place it on the plate                                 
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=7--success=True--task=pick_up_the_black_bowl_next_to_the_cookie_box_and_.mp4
+10/28 [14:20:16] INFO     | >> Success: True              run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 7                                                
+                 INFO     | >> # successes: 3 (42.9%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:10<00:00, 10.34s/it][A100%|██████████| 1/1 [00:10<00:00, 10.34s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          1.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.42857142857142855                             
+ 70%|███████   | 7/10 [02:05<00:49, 16.46s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:20:19] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl on                       
+                          the stove and place it on the                         
+                          plate                                                 
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=8--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4
+10/28 [14:20:36] INFO     | >> Success: False             run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 8                                                
+                 INFO     | >> # successes: 3 (37.5%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:16<00:00, 16.72s/it][A100%|██████████| 1/1 [00:16<00:00, 16.72s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          0.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.375                                           
+ 80%|████████  | 8/10 [02:25<00:35, 17.55s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:20:39] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl                          
+                          next to the plate and place it                        
+                          on the plate                                          
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=9--success=True--task=pick_up_the_black_bowl_next_to_the_plate_and_place.mp4
+10/28 [14:20:48] INFO     | >> Success: True              run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 9                                                
+                 INFO     | >> # successes: 4 (44.4%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:09<00:00,  9.02s/it][A100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          1.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.4444444444444444                              
+ 90%|█████████ | 9/10 [02:37<00:15, 15.86s/it][Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+                 INFO     | >> Using default initial      run_libero_eval.py:221
+                          states                                                
+[Warning]: datasets path /home/shrutiw/projects/LIBERO/libero/libero/../datasets does not exist!
+
+  0%|          | 0/1 [00:00<?, ?it/s][A10/28 [14:20:51] INFO     | >>                            run_libero_eval.py:221
+                          Task: pick up the black bowl on                       
+                          the wooden cabinet and place it                       
+                          on the plate                                          
+                 INFO     | >> Starting episode 1...      run_libero_eval.py:221
+Saved rollout MP4 at path ./rollouts/2026_10_28/2026_10_28-14_16_49--openvla_oft--episode=10--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4
+10/28 [14:21:02] INFO     | >> Success: True              run_libero_eval.py:221
+                 INFO     | >> # episodes completed so    run_libero_eval.py:221
+                          far: 10                                               
+                 INFO     | >> # successes: 5 (50.0%)     run_libero_eval.py:221
+
+100%|██████████| 1/1 [00:10<00:00, 10.75s/it][A100%|██████████| 1/1 [00:10<00:00, 10.75s/it]
+                 INFO     | >> Current task success rate: run_libero_eval.py:221
+                          1.0                                                   
+                 INFO     | >> Current total success      run_libero_eval.py:221
+                          rate: 0.5                                             
+100%|██████████| 10/10 [02:51<00:00, 15.24s/it]100%|██████████| 10/10 [02:51<00:00, 17.16s/it]
+                 INFO     | >> Final results:             run_libero_eval.py:221
+                 INFO     | >> Total episodes: 10         run_libero_eval.py:221
+                 INFO     | >> Total successes: 5         run_libero_eval.py:221
+                 INFO     | >> Overall success rate:      run_libero_eval.py:221
+                          0.5000 (50.0%)                                        
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f2ac4dc0820>
+Traceback (most recent call last):
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f2aa9c67540>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2ac5364740>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2ac5364740>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f2ac5364340>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f2ac4dc0670>
+Traceback (most recent call last):
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f2aa9c67540>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2ac5364740>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2ac5364740>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f2ac5364340>,
+	),
+	result = 0
+)
+[2026-10-28T14:21:05+05:30] smoke test exited rc=0
+[2026-10-28T14:21:05+05:30] smoke test completed successfully; sentinel=/home/shrutiw/projects/openvla-oft/EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/gpu_watch_smoke_completed

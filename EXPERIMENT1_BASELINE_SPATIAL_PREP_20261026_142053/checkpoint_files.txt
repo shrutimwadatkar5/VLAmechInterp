@@ -1,0 +1,23 @@
+=== checkpoint files ===
+302242674 action_head--150000_checkpoint.pt
+21 added_tokens.json
+60711 config.json
+5865 configuration_prismatic.py
+2957 dataset_statistics.json
+136 generation_config.json
+4925122448 model-00001-of-00004.safetensors
+4947392496 model-00002-of-00004.safetensors
+4947417456 model-00003-of-00004.safetensors
+262668432 model-00004-of-00004.safetensors
+49029 modeling_prismatic.py
+94764 model.safetensors.index.json
+1650 preprocessor_config.json
+12718 processing_prismatic.py
+130 processor_config.json
+67275256 proprio_projector--150000_checkpoint.pt
+552 special_tokens_map.json
+1192 tokenizer_config.json
+1842976 tokenizer.json
+499723 tokenizer.model
+=== total ===
+15G	/home/shrutiw/projects/openvla-oft/checkpoints/openvla-7b-oft-finetuned-libero-spatial

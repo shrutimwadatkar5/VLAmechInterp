@@ -1,0 +1,12 @@
+=== base env still clean ===
+numpy==1.26.4
+scipy==1.15.3
+torch==2.2.0+cu121
+transformers==4.40.1
+protobuf==4.25.5
+tensorflow-metadata==1.17.3
+robosuite: not installed in base (expected)
+mujoco: not installed in base (expected)
+bddl: not installed in base (expected)
+gym: not installed in base (expected)
+libero: not installed in base (expected)

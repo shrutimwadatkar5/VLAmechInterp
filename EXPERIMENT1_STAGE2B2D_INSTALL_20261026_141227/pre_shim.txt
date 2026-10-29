@@ -1,0 +1,3 @@
+=== PRE: shim ===
+-rw-rw-r-- 1 shrutiw shrutiw 354 Oct 26 12:28 /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py
+08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50  /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py

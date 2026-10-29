@@ -1,0 +1,5 @@
+benchmark_root: /home/shrutiw/projects/LIBERO/libero/libero
+bddl_files: /home/shrutiw/projects/LIBERO/libero/libero/bddl_files
+init_states: /home/shrutiw/projects/LIBERO/libero/libero/init_files
+datasets: /home/shrutiw/projects/LIBERO/libero/libero/../datasets
+assets: /home/shrutiw/projects/LIBERO/libero/libero/assets

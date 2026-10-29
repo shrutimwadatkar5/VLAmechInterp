@@ -1,0 +1,21 @@
+=== config.json ===
+keys ['arch_specifier', 'architectures', 'auto_map', 'hf_llm_id', 'image_resize_strategy', 'image_sizes', 'llm_backbone_id', 'llm_max_length', 'model_type', 'n_action_bins', 'norm_stats', 'output_projector_states', 'pad_to_multiple_of', 'pad_token_id', 'text_config', 'timm_model_ids', 'timm_override_act_layers', 'torch_dtype', 'transformers_version', 'use_fused_vision_backbone', 'vision_backbone_id']
+auto_map {'AutoConfig': 'configuration_prismatic.OpenVLAConfig', 'AutoModelForVision2Seq': 'modeling_prismatic.OpenVLAForActionPrediction'}
+model_type openvla
+=== processor_config.json ===
+{'auto_map': {'AutoProcessor': 'processing_prismatic.PrismaticProcessor'}, 'processor_class': 'PrismaticProcessor'}
+=== preprocessor_config.json ===
+{'auto_map': {'AutoImageProcessor': 'processing_prismatic.PrismaticImageProcessor', 'AutoProcessor': 'processing_prismatic.PrismaticProcessor'}, 'image_processor_type': 'PrismaticImageProcessor', 'image_resize_strategy': 'resize-naive', 'input_sizes': [[3, 224, 224], [3, 224, 224]], 'interpolations': ['bicubic', 'bicubic'], 'means': [[0.485, 0.456, 0.406], [0.5, 0.5, 0.5]], 'processor_class': 'PrismaticProcessor', 'stds': [[0.229, 0.224, 0.225], [0.5, 0.5, 0.5]], 'tvf_crop_params': [{'output_size': [224, 224]}, {'output_size': [224, 224]}], 'tvf_do_letterbox': False, 'tvf_letterbox_fill': None, 'tvf_normalize_params': [{'inplace': False, 'mean': [0.484375, 0.455078125, 0.40625], 'std': [0.228515625, 0.2236328125, 0.224609375]}, {'inplace': False, 'mean': [0.5, 0.5, 0.5], 'std': [0.5, 0.5, 0.5]}], 'tvf_resize_params': [{'antialias': True, 'interpolation': 3, 'max_size': None, 'size': [224, 224]}, {'antialias': True, 'interpolation': 3, 'max_size': None, 'size': [224, 224]}], 'use_fused_vision_backbone': True}
+=== dataset_statistics.json ===
+norm_keys ['libero_spatial_no_noops']
+libero_spatial_present False
+=== processor/config load ===
+2026-10-26 18:47:59.612766: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-26 18:47:59.653600: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-26 18:47:59.653653: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-26 18:47:59.654827: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-26 18:47:59.661102: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-26 18:48:00.519438: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+processor_ok PrismaticProcessor
+config_ok OpenVLAConfig

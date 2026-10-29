@@ -1,0 +1,9 @@
+updated_at=2026-10-28T14:21:05+05:30
+state=completed
+free_mib=23817
+used_mib=16522
+util_gpu=98
+min_free_mib=20000
+interval_seconds=5400
+pid=1583525
+log=/home/shrutiw/projects/openvla-oft/EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/gpu_watch/gpu_watch_20261027_171524.log

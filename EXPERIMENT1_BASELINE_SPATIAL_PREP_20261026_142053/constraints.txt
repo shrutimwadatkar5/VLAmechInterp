@@ -1,0 +1,6 @@
+numpy==1.26.4
+scipy==1.15.3
+mujoco==2.3.7
+opencv-python==4.10.0.84
+numba==0.60.0
+llvmlite==0.43.0

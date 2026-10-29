@@ -1,0 +1,31 @@
+=== venv versions ===
+numpy==1.26.4
+scipy==1.15.3
+opencv-python==4.10.0.84
+numba==0.60.0
+llvmlite==0.43.0
+mujoco==2.3.7
+robosuite==1.4.1
+bddl==3.6.0
+gym==0.26.2
+easydict==1.13
+cloudpickle==3.1.2
+imageio==2.38.0
+imageio-ffmpeg==0.6.0
+torch==2.2.0+cu121
+torchvision==0.17.0+cu121
+torchaudio==2.2.0+cu121
+transformers==4.40.1
+protobuf==4.25.5
+tensorflow==2.15.0
+tensorflow-metadata==1.17.3
+openvla-oft==0.0.1
+libero==0.1.0
+numpy_file /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/numpy/__init__.py
+torch_file /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/torch/__init__.py
+libero_file None
+robosuite_file /home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/robosuite/__init__.py
+mujoco_version 2.3.7
+bddl_file /home/shrutiw/projects/openvla-oft/.venv_libero/lib/python3.10/site-packages/bddl/__init__.py
+gym_version 0.26.2
+cv2_version 4.10.0

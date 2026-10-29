@@ -1,0 +1,49 @@
+=== SHIM TEST: move shim aside ===
+-rw-rw-r-- 1 shrutiw shrutiw 354 Oct 26 12:28 /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py.disabled
+=== runtime_version should now fail ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'google.protobuf.runtime_version'
+runtime_version_import_exit=1
+=== import checks with shim absent ===
+schema_pb2_ok
+schema_exit=0
+tfds 4.9.3
+tfds_exit=0
+2026-10-26 14:14:34.110406: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-26 14:14:34.152447: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-26 14:14:34.169992: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-26 14:14:34.171274: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-26 14:14:34.178103: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-26 14:14:34.959104: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+prismatic_ok /home/shrutiw/projects/openvla-oft/prismatic/__init__.py
+prismatic_exit=0
+2026-10-26 14:14:48.036391: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-26 14:14:48.078152: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-26 14:14:48.078200: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-26 14:14:48.079565: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-26 14:14:48.086631: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-26 14:14:49.110694: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+get_vla_ok
+get_vla_exit=0
+=== pip check with shim absent ===
+fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have opentelemetry-api 1.21.0.
+opentelemetry-exporter-otlp-common 0.66b1 has requirement opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+pip_check_exit=1
+all_import_checks_ok=1
+shim_removed=YES
+shim_exists_after=NO

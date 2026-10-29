@@ -1,0 +1,9 @@
+Obtaining file:///home/shrutiw/projects/LIBERO
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Installing collected packages: libero
+  Running setup.py develop for libero
+Successfully installed libero-0.1.0
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.2
+[notice] To update, run: /home/shrutiw/projects/openvla-oft/.venv_libero/bin/python -m pip install --upgrade pip

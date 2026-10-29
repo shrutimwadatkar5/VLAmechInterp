@@ -1,0 +1,135 @@
+STAGE 3A: INFERENCE PIPELINE AUDIT (READ-ONLY)
+Generated: 2026-10-28T21:08:XX
+Repo: /home/shrutiw/projects/openvla-oft
+Safety: read-only; no model load/inference/modifications/installs/kills/sudo
+
+============================================================
+1) PIPELINE TRACE (SOURCE + LINES)
+============================================================
+
+LIBERO eval (experiments/robot/libero/run_libero_eval.py, 531 lines)
+  Classes/defs: TaskSuite(54), GenerateConfig(82), validate_config(133), initialize_model(146), check_unnorm_key(179), setup_logging(195), log_message(219), load_initial_states(227), prepare_observation(243), process_action(265), run_episode(278), run_task(362), eval_libero(462)
+
+Key flow (from source):
+- prepare_observation(obs, resize_size) [243-263]: get_libero_image/get_libero_wrist_image, resize_image_for_policy to resize_size, build obs dict with full_image,wrist_image,state (eef_pos, eef_quat->axisangle, gripper_qpos), returns (observation, img)
+- run_episode(cfg, env, task_description, model, resize_size, ...) [278-360]: resets, gets initial state, loops (NUM_ACTIONS_CHUNK) - for each step prepares obs via prepare_observation, gets action via get_action(cfg, model, observation, processor=..., proprio_projector=..., action_head=..., noisy_action_projector=..., use_film=...), processes action via process_action, steps env, logs
+- run_task [362-460]: runs episodes for task, computes success
+- eval_libero [462-531]: orchestrates
+
+openvla_utils.py (key defs): model_is_on_hf_hub, update_auto_map, get_vla(253), get_processor(380), get_proprio_projector(393), get_noisy_action_projector(438), get_action_head(464), resize_image_for_policy(520), center_crop_image(596), get_vla_action(715), get_action_from_server(801)
+
+robot_utils.py: set_seed_everywhere(38), get_model(54), get_image_resize_size(77), get_action(99), normalize_gripper_action(149), invert_gripper_action(180)
+
+Prismatic/HF (prismatic/extern/hf/modeling_prismatic.py):
+  PrismaticVisionBackbone (67), forward (186) - builds vision features
+  PrismaticProjector (231), forward (250) - projects vision features
+  PrismaticForConditionalGeneration (317), forward (499)
+  OpenVLAForActionPrediction (720), predict_action (944)
+
+Action heads: prismatic/models/action_heads.py (L1RegressionActionHead, DiffusionActionHead)
+
+============================================================
+2) VERIFIED HOOK POINTS (from source inspection)
+============================================================
+
+Verified modules/locations:
+- Vision encoder: self.vision_backbone in PrismaticForConditionalGeneration/OpenVLA (PrismaticVisionBackbone, modeling_prismatic.py:67-186). forward at ~186 returns features.
+- Projector: self.projector (PrismaticProjector, ~231-250). forward at ~250.
+- Multimodal/fusion: flows through projector output + language_model processing in forward/predict_action paths.
+- LLM backbone: self.language_model attached in PrismaticForConditionalGeneration (~317+).
+- Action head: attached as self.action_head in OpenVLAForActionPrediction / passed via get_action_head in openvla_utils.py:464; used in predict_action (modeling_prismatic.py:944+). Implementation in prismatic/models/action_heads.py.
+- Proprio projector: created by get_proprio_projector (openvla_utils.py:393), used in get_vla_action/robot_utils paths.
+- Film layers (optional): _apply_film_to_vla in openvla_utils.py:311
+
+Recommended hook points (by module name patterns for forward hooks):
+- vla.vision_backbone.* (and backbone submodules)
+- vla.projector
+- vla.language_model (and vla.language_model.model.layers.* for layer-wise)
+- vla.language_model.model.norm (if present)
+- action_head (external) - register with prefix
+- proprio_projector (external) - register with prefix
+
+Note: exact tensor shapes depend on processor/resolution/runtime; must be verified at runtime, not assumed.
+
+============================================================
+3) PROPOSED EXPERIMENT MATRIX (initial controlled)
+============================================================
+
+Patch perturbations:
+- color: red, blue, green (solid)
+- texture: solid, checkerboard, gaussian noise
+- size (relative to image): 10%, 15%, 25% of shorter side
+- position: center, edge, corner
+- views: full image primarily; optionally wrist
+
+Background perturbations:
+- color: gray, black, dark blue (solid replacement)
+- texture: solid, image background, blur, gaussian noise
+- lighting: tint (warm/cold), brightness shift
+- mask: border/full/static/semantic (start simple)
+
+Combined:
+- patch (medium, center) x background (blur)
+- patch (large, corner) x background (noise)
+- extremes for sensitivity mapping
+
+Matched-comparison: same task/episode/seed where possible; clean baseline first.
+
+============================================================
+4) ACTIVATION CAPTURE & ANALYSIS PLAN
+============================================================
+
+Capture:
+- Register forward hooks on selected modules (see above). Support extra_modules for external (action_head, proprio_projector).
+- Per timestep: save step_XXXXXX.pt with {step_id, metadata, activations} where activations[key][suffix] = reduced tensor (CPU)
+- Manifest: manifest.jsonl with step_id, metadata, keys, shapes, dtypes, path, saved_at
+- Run metadata: run_metadata.json with specs, matched_modules, extras
+
+Metadata to associate:
+- condition_id, perturbation_type, perturbation_params (including patch hash/seed), view
+- task_id/task_name, episode_id, trial, timestep
+- hook_name/module_name, layer_idx, reducer
+- checkpoint_path/model_name, run_id, seed
+- success/failure, action deviation
+
+Analysis:
+- Clean vs perturbed: L2 distance, cosine similarity per hook/layer
+- Representation similarity: CKA, RSA across layers
+- Action deviation: L2 norm of action delta vs clean
+- Task outcome: correlate activation differences with success/failure
+- Layer-wise sensitivity profiles
+
+Storage control: use mean_seq/last_token/flatten; dtype float16/float32; limit layers.
+
+============================================================
+5) BASELINE VERIFICATION (existing artifacts)
+============================================================
+
+Prep dir: EXPERIMENT1_BASELINE_SPATIAL_PREP_20261026_142053/
+- baseline_logs/ exists with runs
+- Full now run completed: "Total episodes: 10, Total successes: 6, Overall success rate: 0.6000 (60.0%)" (from log)
+- Rollouts: rollouts/2026_10_28 contains 20 files (mp4s)
+
+Artifacts available for matching: logs with task/episode/success, rollout mp4s. Activation data not present from baseline (no hooks used).
+
+============================================================
+6) DISTINCTION: UNIVERSALITY vs TRANSFERABILITY
+============================================================
+
+- Universality: consistency of effect across different LIBERO tasks for the same model/checkpoint (within-distribution task generality)
+- Transferability: consistency of effect across different models/checkpoints/architectures (cross-model generality)
+
+Both require matched comparisons and control of confounds.
+
+============================================================
+UNRESOLVED QUESTIONS
+============================================================
+
+- Exact tensor shapes at runtime (need to inspect actual forward outputs)
+- Hook timing: forward_hook vs pre_hook; input vs output; which specific submodules
+- Action head internals depend on type (L1RegressionActionHead vs DiffusionActionHead)
+- Optimal reduction strategy per module type
+- Whether to capture during get_vla_action vs full forward/predict_action
+- Wrist camera effects separate from primary view
+
+REPORT_PATH: $REPORT

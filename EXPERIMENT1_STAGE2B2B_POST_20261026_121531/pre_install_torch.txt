@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+NameError: name 'torchvision' is not defined
+ERROR conda.cli.main_run:execute(148): `conda run python -c import torch; print(torch.__version__,torchvision.__version__,torchaudio.__version__); print(torch.cuda.is_available());` failed. (See above for error)

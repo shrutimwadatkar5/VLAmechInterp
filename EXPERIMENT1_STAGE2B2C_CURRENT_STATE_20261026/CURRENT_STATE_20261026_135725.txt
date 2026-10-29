@@ -1,0 +1,293 @@
+EXPERIMENT 1 - STAGE 2B-2C: CURRENT-STATE VERIFICATION (READ-ONLY)
+=================================================================
+Generated: 2026-10-26T13:57:25+05:30
+Host: bionlp
+User: shrutiw
+Mode: read-only verification.
+
+Constraints observed during this verification:
+  - No package was installed, uninstalled, upgraded, downgraded, or reinstalled.
+  - No package-resolver dry-run was performed.
+  - No source file, checkpoint, or model weight was modified or loaded.
+  - No inference was run. get_vla() was NOT called.
+  - No other conda environment or research project was touched.
+  - The only file created by this verification is this report.
+
+Paths
+-----
+Conda:      /home/shrutiw/miniconda3/bin/conda
+Env:        /home/shrutiw/miniconda3/envs/openvla_oft
+Env Python: /home/shrutiw/miniconda3/envs/openvla_oft/bin/python
+Repo:       /home/shrutiw/projects/openvla-oft
+Target dir: /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2C_CURRENT_STATE_20261026
+
+NOTE ON TARGET DIRECTORY: at the time of verification the target directory
+did NOT exist. It was created only to hold this report. No pre-existing
+report was overwritten.
+
+
+1. VERIFIED ACTUAL STATE
+------------------------
+
+1.1 Python and GPU stack
+    python:        3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]
+    executable:    /home/shrutiw/miniconda3/envs/openvla_oft/bin/python
+    torch:         2.2.0+cu121
+    torchvision:   0.17.0+cu121
+    torchaudio:    2.2.0+cu121
+    torch_cuda:    12.1
+    cuda_available: True
+    gpu:           NVIDIA A100-PCIE-40GB
+    gpu_count:     1
+
+1.2 Installed package versions (from importlib.metadata)
+    protobuf==4.25.5
+    tensorflow==2.15.0
+    tensorflow-datasets==4.9.3
+    tensorflow-metadata==1.21.0
+    googleapis-common-protos==1.62.0
+    opentelemetry-api==1.21.0
+    opentelemetry-sdk==1.21.0
+    opentelemetry-proto==1.21.0
+    opentelemetry-exporter-otlp-common==0.66b1
+    wandb==0.16.6
+    fastapi==0.162.0
+    transformers==4.40.1
+    dlimp==0.0.1
+    openvla-oft==0.0.1
+
+1.3 VCS provenance of preserved packages
+    transformers:  https://github.com/moojink/transformers-openvla-oft.git
+                   commit bc339d9ad707454c0c115970db43c260067c61ab
+    dlimp:         https://github.com/moojink/dlimp_openvla
+                   commit 040105d256bd28866cc6620621a3d5f7b6b91b46
+    openvla-oft:   Editable project location
+                   /home/shrutiw/projects/openvla-oft
+                   (editable artifacts present:
+                    __editable__.openvla_oft-0.0.1.pth,
+                    __editable___openvla_oft_0_0_1_finder.py)
+
+1.4 pip check result (exit code 1)
+    fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have
+    opentelemetry-api 1.21.0.
+    opentelemetry-exporter-otlp-common 0.66b1 has requirement
+    opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+
+    No other pip-check conflicts were reported.
+
+1.5 Temporary runtime_version shim
+    Path:
+      /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py
+    Exists: YES
+    Size:   354 bytes
+    mtime:  2026-10-26 12:28:03.675864434 +0530
+    Ownership: shrutiw:shrutiw
+
+    Contents (verbatim):
+      # Minimal stub for compatibility
+      DOMAIN = 1
+      MAJOR = 4
+      MINOR = 23
+      PATCH = 4
+      SUFFIX = ''
+      def ValidateProtobufRuntimeVersion(gen_version, gen_domain, pkg_version, pkg_domain, filename=None):
+          return
+      class Domain:
+          PUBLIC = 1
+      def ValidateProtobufRuntimeVersion(gen_version, gen_domain, pkg_version, pkg_domain, filename=None, version=None):
+          return
+
+    Facts about the shim:
+      - `import google.protobuf.runtime_version` resolves to this file.
+      - `google.protobuf.__version__` is 4.25.5.
+      - This file is NOT listed in the protobuf-4.25.5.dist-info/RECORD.
+        Therefore it is not part of the installed protobuf distribution.
+      - The module contains two definitions of
+        ValidateProtobufRuntimeVersion; the second definition wins.
+      - The MAJOR/MINOR/PATCH constants (4.23.4) do not match the installed
+        protobuf version (4.25.5).
+
+1.6 Import checks (no weights loaded, no get_vla() call)
+    cd /home/shrutiw/projects/openvla-oft
+    python -c 'import prismatic; print(prismatic.__file__)'
+      exit code: 0
+      prismatic.__file__ = /home/shrutiw/projects/openvla-oft/prismatic/__init__.py
+
+    python -c 'from experiments.robot.openvla_utils import get_vla; print("ok")'
+      exit code: 0
+      output: ok
+
+    The import path emits informational TensorFlow / LIBERO-constants
+    messages, but no traceback was produced.
+
+1.7 Repository state
+    HEAD: e4287e94541f459edc4feabc4e181f537cd569a8
+    git status --porcelain: only untracked experiment artifacts, no tracked
+    files modified. Untracked entries observed:
+      ?? EXPERIMENT1_SETUP_AUDIT.md
+      ?? EXPERIMENT1_STAGE2B2A_DIAG_20261026_114425/
+      ?? EXPERIMENT1_STAGE2B2A_DIAG_20261026_manual/
+      ?? EXPERIMENT1_STAGE2B2B_POST_20261026_121531/
+      ?? EXPERIMENT1_STAGE2B2B_PRE_20261026_120648/
+      ?? EXPERIMENT1_STAGE2B2C_COMPATIBILITY_20261026/
+      ?? EXPERIMENT1_STAGE2B_BEFORE.txt
+
+1.8 Existing diagnostic/report directories (verified to exist)
+    /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2A_DIAG_20261026_114425
+    /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2A_DIAG_20261026_manual
+    /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2B_POST_20261026_121531
+    /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2B_PRE_20261026_120648
+    /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2C_COMPATIBILITY_20261026
+
+    The target directory for this report did not exist before this run.
+
+1.9 Repository dependency declarations
+    File inventory: pyproject.toml exists. setup.py and requirements.txt do
+    NOT exist at the repository root.
+
+    Relevant lines from pyproject.toml:
+      42: "protobuf",                     # unpinned
+      47: "torch==2.2.0",
+      48: "torchvision==0.17.0",
+      49: "torchaudio==2.2.0",
+      50: "transformers @ git+https://github.com/moojink/transformers-openvla-oft.git"
+      51: "wandb",                        # unpinned
+      52: "tensorflow==2.15.0",
+      53: "tensorflow_datasets==4.9.3",
+      54: "tensorflow_graphics==2021.12.3",
+      55: "dlimp @ git+https://github.com/moojink/dlimp_openvla",
+      59: "fastapi",                      # unpinned
+
+1.10 Declared resolver constraints (installed metadata)
+    tensorflow 2.15.0:
+      protobuf (!=4.21.0, !=4.21.1, !=4.21.2, !=4.21.3, !=4.21.4, !=4.21.5,
+                <5.0.0dev, >=3.20.3)
+    tensorflow-metadata 1.21.0:
+      protobuf<=6.32,>=4.21.6   (python_version < "3.11")
+      protobuf>=4.25.2          (python_version >= "3.11")
+    tensorflow-datasets 4.9.3:
+      protobuf>=3.20
+      tensorflow-metadata       (no version constraint)
+
+    Installed protobuf 4.25.5 therefore satisfies both TF 2.15 (<5.0.0dev)
+    and tensorflow-metadata 1.21.0's declared lower bound.
+
+1.11 Structural source of the runtime_version dependency
+    The installed tensorflow-metadata 1.21.0 generated *_pb2.py files under
+    tensorflow_metadata/proto/v0/ contain `runtime_version` references
+    (confirmed by grep). Examples found:
+      metric_pb2.py
+      problem_statement_pb2.py
+      path_pb2.py
+    (plus compiled __pycache__ equivalents).
+
+    The protobuf 4.25.5 distribution does not list runtime_version.py in its
+    RECORD. The only reason such a module is importable is the added shim in
+    section 1.5. Without that shim, the tensorflow-metadata proto import path
+    would not find `google.protobuf.runtime_version`.
+
+
+2. CLAIMS FROM EARLIER REPORTS THAT REMAIN UNVERIFIED
+-----------------------------------------------------
+The following are historical claims. This verification checked only the
+present state and did not independently reconstruct or audit past events.
+
+  - Exact pre-repair versions (protobuf 3.20.3, tensorflow-datasets 4.9.10,
+    googleapis-common-protos 1.76.0, opentelemetry-proto 1.45.1,
+    wandb 0.31.0, etc.) are NOT verified now. They cannot be established from
+    the current environment alone.
+  - The claim that the shim was created during Stage 2B-2B is NOT independently
+    verified. The file exists with mtime 2026-10-26 12:28:03; how and by which
+    command it was created is not proven by this check.
+  - The exact package-install commands, their logs, and the claim that they
+    were applied as one approved transaction are NOT verified here.
+  - The claim that imports were originally failing specifically on
+    `runtime_version` is consistent with the present structural evidence but
+    was NOT reproduced in this read-only check.
+  - The claim that Stage 2B-2B is "complete" is NOT verified as a process; only
+    the present state was observed.
+  - The claim that the two pip-check conflicts are "non-blocking" is NOT
+    verified for every code path. No inference/serving path was executed.
+  - No model checkpoint was downloaded or inspected in this check, so any
+    claims about checkpoint availability remain unverified.
+
+Claims that WERE independently confirmed in this check:
+  - PyTorch / torchvision / torchaudio versions and CUDA/GPU availability.
+  - Custom transformers fork commit and dlimp fork commit.
+  - Editable openvla-oft installation.
+  - Current package versions listed in section 1.2.
+  - Current pip-check output (two conflicts only).
+  - `import prismatic` and `get_vla` import both succeed (exit 0).
+  - The shim exists and is the resolved runtime_version module.
+  - Repository HEAD and tracked-file cleanliness.
+
+
+3. IMPORT FAILURES OR DEPENDENCY CONFLICTS
+------------------------------------------
+3.1 Current import failures
+    None observed for the two requested imports:
+      - import prismatic: SUCCESS (exit 0)
+      - from experiments.robot.openvla_utils import get_vla: SUCCESS (exit 0)
+    No weights were loaded; get_vla() was not invoked.
+
+3.2 Current declared-metadata conflicts (pip check, exit 1)
+    a) fastapi 0.162.0 requires opentelemetry-api>=1.44.0,
+       but opentelemetry-api 1.21.0 is installed.
+    b) opentelemetry-exporter-otlp-common 0.66b1 requires
+       opentelemetry-sdk~=1.45.1, but opentelemetry-sdk 1.21.0 is installed.
+
+    These are declared-metadata conflicts. Whether they affect a given
+    runtime path was not tested.
+
+3.3 Structural risk, not reported by pip check
+    The working import of tensorflow-metadata protos depends on a
+    hand-added shim that is not owned by any installed distribution and is
+    not in protobuf's RECORD. pip check cannot detect this. Consequences:
+      - Reinstalling/upgrading protobuf may silently remove or shadow the shim.
+      - The shim's ValidateProtobufRuntimeVersion is a no-op, so it performs no
+        real version validation.
+      - The shim's version constants (4.23.4) are inconsistent with the
+        installed protobuf (4.25.5), which could mislead consumers that read
+        MAJOR/MINOR/PATCH.
+    This is reported as a fact of the current state, not as a recommendation.
+
+
+4. POTENTIAL NEXT STEPS REQUIRING APPROVAL
+------------------------------------------
+No repair, cleanup, install, uninstall, or resolver dry-run was performed.
+The following are options only; none has been executed or evaluated with pip.
+
+  A. Leave the environment exactly as-is.
+     - Current imports work for prismatic and get_vla.
+     - Two pip-check conflicts remain.
+     - The runtime_version shim remains a non-package file in site-packages.
+
+  B. Perform an audited dependency-compatibility evaluation (separate stage).
+     - Inspect whether a tensorflow-metadata version predating the
+       runtime_version code-generation change is compatible with TF 2.15 and
+       tensorflow-datasets 4.9.3.
+     - Use resolver dry-runs only, then report before any change.
+     - Goal would be to remove dependence on the shim rather than keep it.
+
+  C. Evaluate the two reported pip-check conflicts only.
+     - Determine whether fastapi and opentelemetry-exporter-otlp-common are on
+       any required OpenVLA-OFT runtime path, and whether version alignment is
+       possible without touching the core stack.
+
+  D. Rebuild the environment from repository pins (larger change).
+     - Not evaluated; would require a separate approval and rollback plan.
+
+Approval gate:
+  No further environment changes will be made until explicitly approved.
+  No resolver dry-runs or installation transactions are proposed as approved
+  actions in this report.
+
+
+5. VERIFICATION LIMITS
+----------------------
+  - No get_vla() call, no checkpoint download, no model loading, no inference.
+  - No resolver dry-runs and no pip install/uninstall commands were run.
+  - Earlier report directories were confirmed to exist but were not audited
+    line-by-line for this report.
+  - Package installation history is not independently reconstructable from the
+    current environment; see section 2.

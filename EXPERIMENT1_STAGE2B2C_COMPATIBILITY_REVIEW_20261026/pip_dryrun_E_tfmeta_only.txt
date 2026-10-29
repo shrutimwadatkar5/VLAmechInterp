@@ -1,0 +1,5 @@
+Collecting tensorflow-metadata==1.17.3
+  Using cached tensorflow_metadata-1.17.3-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: absl-py<3.0.0,>=0.9 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from tensorflow-metadata==1.17.3) (2.5.1)
+Requirement already satisfied: protobuf<=6.32,>=4.21.6 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from tensorflow-metadata==1.17.3) (4.25.5)
+Would install tensorflow-metadata-1.17.3

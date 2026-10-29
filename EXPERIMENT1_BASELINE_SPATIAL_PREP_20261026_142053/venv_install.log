@@ -1,0 +1,120 @@
+Collecting robosuite==1.4.1
+  Using cached robosuite-1.4.1-py3-none-any.whl (193.5 MB)
+Collecting bddl==3.6.0
+  Using cached bddl-3.6.0.tar.gz (2.3 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting easydict==1.13
+  Using cached easydict-1.13-py3-none-any.whl (6.8 kB)
+Collecting cloudpickle==3.1.2
+  Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Collecting gym==0.26.2
+  Using cached gym-0.26.2.tar.gz (721 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: imageio[ffmpeg] in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (2.38.0)
+Collecting nltk==3.8.1
+  Using cached nltk-3.8.1-py3-none-any.whl (1.5 MB)
+Requirement already satisfied: Pillow in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from robosuite==1.4.1) (12.3.0)
+Requirement already satisfied: scipy>=1.2.3 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from robosuite==1.4.1) (1.15.3)
+Collecting opencv-python
+  Using cached opencv_python-4.10.0.84-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (62.5 MB)
+Requirement already satisfied: termcolor in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from robosuite==1.4.1) (3.3.0)
+Collecting numba>=0.49.1
+  Using cached numba-0.60.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.7 MB)
+Collecting pynput
+  Using cached pynput-1.8.2-py2.py3-none-any.whl (92 kB)
+Collecting mujoco>=2.3.0
+  Using cached mujoco-2.3.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+Requirement already satisfied: numpy>=1.13.3 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from robosuite==1.4.1) (1.26.4)
+Collecting pytest
+  Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+Requirement already satisfied: networkx in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from bddl==3.6.0) (3.4.2)
+Collecting jupytext
+  Using cached jupytext-1.19.6-py3-none-any.whl (230 kB)
+Collecting future
+  Using cached future-1.0.0-py3-none-any.whl (491 kB)
+Collecting gym_notices>=0.0.4
+  Using cached gym_notices-0.1.0-py3-none-any.whl (3.3 kB)
+Collecting joblib
+  Using cached joblib-1.6.0-py3-none-any.whl (306 kB)
+Requirement already satisfied: click in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from nltk==3.8.1) (8.5.0)
+Requirement already satisfied: tqdm in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from nltk==3.8.1) (4.70.1)
+Requirement already satisfied: regex>=2021.8.3 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from nltk==3.8.1) (2026.9.29)
+Collecting imageio-ffmpeg
+  Using cached imageio_ffmpeg-0.6.0-py3-none-manylinux2014_x86_64.whl (29.5 MB)
+Requirement already satisfied: psutil in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from imageio[ffmpeg]) (7.2.2)
+Collecting pyopengl
+  Using cached pyopengl-3.1.10-py3-none-any.whl (3.2 MB)
+Collecting glfw
+  Using cached glfw-2.11.0-py2.py3-none-manylinux_2_28_x86_64.whl (248 kB)
+Requirement already satisfied: absl-py in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from mujoco>=2.3.0->robosuite==1.4.1) (2.5.1)
+Collecting llvmlite<0.44,>=0.43.0dev0
+  Using cached llvmlite-0.43.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (43.9 MB)
+Requirement already satisfied: markdown-it-py>=1.0 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from jupytext->bddl==3.6.0) (4.2.0)
+Collecting mdit-py-plugins
+  Using cached mdit_py_plugins-0.6.1-py3-none-any.whl (66 kB)
+Collecting tomli
+  Using cached tomli-2.5.0-py3-none-any.whl (14 kB)
+Requirement already satisfied: pyyaml in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from jupytext->bddl==3.6.0) (6.0.3)
+Requirement already satisfied: packaging in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from jupytext->bddl==3.6.0) (26.3)
+Collecting nbformat
+  Using cached nbformat-5.11.1-py3-none-any.whl (79 kB)
+Requirement already satisfied: six in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from pynput->robosuite==1.4.1) (1.17.0)
+Collecting python-xlib>=0.17
+  Using cached python_xlib-0.33-py2.py3-none-any.whl (182 kB)
+Collecting evdev>=1.3
+  Using cached evdev-1.9.3.tar.gz (32 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pluggy<2,>=1.5
+  Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+Requirement already satisfied: pygments>=2.7.2 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from pytest->bddl==3.6.0) (2.21.0)
+Collecting iniconfig>=1.0.1
+  Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Requirement already satisfied: exceptiongroup>=1 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from pytest->bddl==3.6.0) (1.3.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from exceptiongroup>=1->pytest->bddl==3.6.0) (4.16.0)
+Requirement already satisfied: mdurl~=0.1 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from markdown-it-py>=1.0->jupytext->bddl==3.6.0) (0.1.2)
+Collecting jsonschema>=2.6
+  Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Collecting jupyter-core!=5.0.*,>=4.12
+  Using cached jupyter_core-5.9.1-py3-none-any.whl (29 kB)
+Collecting fastjsonschema>=2.15
+  Using cached fastjsonschema-2.22.2-py3-none-any.whl (27 kB)
+Collecting traitlets>=5.1
+  Using cached traitlets-5.16.1-py3-none-any.whl (86 kB)
+Requirement already satisfied: attrs>=22.2.0 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from jsonschema>=2.6->nbformat->jupytext->bddl==3.6.0) (26.1.0)
+Collecting referencing>=0.28.4
+  Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Collecting jsonschema-specifications>=2023.03.6
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Collecting rpds-py>=0.25.0
+  Using cached rpds_py-0.30.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (390 kB)
+Requirement already satisfied: platformdirs>=2.5 in /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages (from jupyter-core!=5.0.*,>=4.12->nbformat->jupytext->bddl==3.6.0) (4.12.4)
+Building wheels for collected packages: bddl, gym, evdev
+  Building wheel for bddl (setup.py): started
+  Building wheel for bddl (setup.py): finished with status 'done'
+  Created wheel for bddl: filename=bddl-3.6.0-py3-none-any.whl size=2859620 sha256=0cdace3b505defc50a8b2adbeef418079bcd627e5c7cf096f0fcc7f5c4b8e802
+  Stored in directory: /home/shrutiw/.cache/pip/wheels/d8/59/d8/8f9e77bc51e416d1140a0907018df9f28a533c4788eb752c96
+  Building wheel for gym (pyproject.toml): started
+  Building wheel for gym (pyproject.toml): finished with status 'done'
+  Created wheel for gym: filename=gym-0.26.2-py3-none-any.whl size=827727 sha256=9d49c28cf77130bb9a51f0be1991d0dbbdaa5040642a2a541bcdbe49e455495b
+  Stored in directory: /home/shrutiw/.cache/pip/wheels/b9/22/6d/3e7b32d98451b4cd9d12417052affbeeeea012955d437da1da
+  Building wheel for evdev (pyproject.toml): started
+  Building wheel for evdev (pyproject.toml): finished with status 'done'
+  Created wheel for evdev: filename=evdev-1.9.3-cp310-cp310-linux_x86_64.whl size=72801 sha256=27b9328d8438fc851cc8405abe490eba9758f520a73e0e6c4e4d4c850c6bc233
+  Stored in directory: /home/shrutiw/.cache/pip/wheels/68/70/b4/3fc7b36d0009ccf99b44add24b4bb0427f802ca6f9e525c3be
+Successfully built bddl gym evdev
+Installing collected packages: pyopengl, gym_notices, glfw, easydict, traitlets, tomli, rpds-py, python-xlib, pluggy, opencv-python, mujoco, llvmlite, iniconfig, imageio-ffmpeg, future, fastjsonschema, evdev, cloudpickle, referencing, pytest, pynput, numba, mdit-py-plugins, jupyter-core, joblib, gym, robosuite, nltk, jsonschema-specifications, jsonschema, nbformat, jupytext, bddl
+Successfully installed bddl-3.6.0 cloudpickle-3.1.2 easydict-1.13 evdev-1.9.3 fastjsonschema-2.22.2 future-1.0.0 glfw-2.11.0 gym-0.26.2 gym_notices-0.1.0 imageio-ffmpeg-0.6.0 iniconfig-2.3.1 joblib-1.6.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-core-5.9.1 jupytext-1.19.6 llvmlite-0.43.0 mdit-py-plugins-0.6.1 mujoco-2.3.7 nbformat-5.11.1 nltk-3.8.1 numba-0.60.0 opencv-python-4.10.0.84 pluggy-1.7.0 pynput-1.8.2 pyopengl-3.1.10 pytest-9.1.1 python-xlib-0.33 referencing-0.37.0 robosuite-1.4.1 rpds-py-0.30.0 tomli-2.5.0 traitlets-5.16.1
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.2
+[notice] To update, run: /home/shrutiw/projects/openvla-oft/.venv_libero/bin/python -m pip install --upgrade pip

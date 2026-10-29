@@ -1,0 +1,82 @@
+=== FINAL: shim presence ===
+ls: cannot access '/home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py': No such file or directory
+ls_exit=2
+=== FINAL: runtime_version import (expected failure) ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'google.protobuf.runtime_version'
+runtime_version_import_exit=1
+=== FINAL: imports ===
+schema_pb2_ok
+schema_exit=0
+tfds 4.9.3
+tfds_exit=0
+2026-10-26 14:15:22.117755: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-26 14:15:22.197222: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-26 14:15:22.197283: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-26 14:15:22.198993: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-26 14:15:22.209114: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-26 14:15:23.239947: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+prismatic_ok /home/shrutiw/projects/openvla-oft/prismatic/__init__.py
+prismatic_exit=0
+2026-10-26 14:15:36.356277: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-26 14:15:36.397237: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-10-26 14:15:36.397283: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-10-26 14:15:36.398621: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-10-26 14:15:36.405600: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-26 14:15:37.150388: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+get_vla_ok
+get_vla_exit=0
+all_imports_ok=1
+=== FINAL: pip check ===
+fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have opentelemetry-api 1.21.0.
+opentelemetry-exporter-otlp-common 0.66b1 has requirement opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+pip_check_exit=1
+=== FINAL: versions ===
+protobuf==4.25.5
+tensorflow==2.15.0
+tensorflow-datasets==4.9.3
+tensorflow-metadata==1.17.3
+absl-py==2.5.1
+googleapis-common-protos==1.62.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-proto==1.21.0
+opentelemetry-exporter-otlp-common==0.66b1
+wandb==0.16.6
+fastapi==0.162.0
+transformers==4.40.1
+dlimp==0.0.1
+openvla-oft==0.0.1
+torch==2.2.0+cu121
+torchvision==0.17.0+cu121
+torchaudio==2.2.0+cu121
+cuda 12.1 True NVIDIA A100-PCIE-40GB
+=== FINAL: backup ===
+08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50  /home/shrutiw/projects/openvla-oft/EXPERIMENT1_STAGE2B2D_INSTALL_20261026_141227/backup/runtime_version.py
+=== FINAL: git status ===
+e4287e94541f459edc4feabc4e181f537cd569a8
+?? EXPERIMENT1_SETUP_AUDIT.md
+?? EXPERIMENT1_STAGE2B2A_DIAG_20261026_114425/
+?? EXPERIMENT1_STAGE2B2A_DIAG_20261026_manual/
+?? EXPERIMENT1_STAGE2B2B_POST_20261026_121531/
+?? EXPERIMENT1_STAGE2B2B_PRE_20261026_120648/
+?? EXPERIMENT1_STAGE2B2C_COMPATIBILITY_20261026/
+?? EXPERIMENT1_STAGE2B2C_COMPATIBILITY_REVIEW_20261026/
+?? EXPERIMENT1_STAGE2B2C_CURRENT_STATE_20261026/
+?? EXPERIMENT1_STAGE2B2D_INSTALL_20261026_141227/
+?? EXPERIMENT1_STAGE2B_BEFORE.txt

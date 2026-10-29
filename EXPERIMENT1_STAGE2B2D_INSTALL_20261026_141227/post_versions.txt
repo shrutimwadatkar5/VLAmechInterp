@@ -1,0 +1,20 @@
+=== POST INSTALL: versions ===
+protobuf==4.25.5
+tensorflow==2.15.0
+tensorflow-datasets==4.9.3
+tensorflow-metadata==1.17.3
+absl-py==2.5.1
+googleapis-common-protos==1.62.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-proto==1.21.0
+opentelemetry-exporter-otlp-common==0.66b1
+wandb==0.16.6
+fastapi==0.162.0
+transformers==4.40.1
+dlimp==0.0.1
+openvla-oft==0.0.1
+torch==2.2.0+cu121
+torchvision==0.17.0+cu121
+torchaudio==2.2.0+cu121
+tensorflow_metadata_file= /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/tensorflow_metadata/__init__.py

@@ -1,0 +1,403 @@
+EXPERIMENT 1 - STAGE 2B-2C COMPATIBILITY REVIEW
+================================================
+Generated: 2026-10-26T14:09:48+05:30
+Host: bionlp
+User: shrutiw
+Repository: /home/shrutiw/projects/openvla-oft
+Environment: /home/shrutiw/miniconda3/envs/openvla_oft
+Report mode: investigation only (resolver dry runs + read-only inspection).
+
+Safety constraints observed:
+  - No package was installed, uninstalled, upgraded, downgraded, or removed.
+  - The temporary runtime_version shim was NOT modified or deleted.
+  - No model weights were loaded and no inference was run.
+  - No repository source file was changed.
+  - No environment rebuild was performed.
+  - No other conda environment or research project was touched.
+  - Resolver dry runs only; all pip commands included --dry-run.
+  - The isolated import test used a temporary extracted wheel under /tmp and
+    did not write into site-packages or the repository.
+
+
+0. EXECUTIVE SUMMARY
+--------------------
+The requested combination
+    tensorflow-metadata==1.14.0 + protobuf==4.25.5 + tensorflow-datasets==4.9.3
+is NOT resolvable. tensorflow-metadata 1.14.0 declares
+    protobuf<4.21,>=3.20.3
+so pip refuses to pair it with protobuf 4.25.5.
+
+A better candidate exists:
+    tensorflow-metadata==1.17.3
+This release:
+  - allows protobuf<=6.32,>=4.21.6 on Python < 3.11 (so protobuf 4.25.5 is OK),
+  - contains ZERO imports of google.protobuf.runtime_version,
+  - is compatible with tensorflow-datasets 4.9.3's unpinned
+    tensorflow-metadata requirement,
+  - leaves absl-py 2.5.1, protobuf 4.25.5, tfds 4.9.3, and all GPU/OpenVLA
+    packages unchanged.
+
+An isolated shadow-import test with tensorflow_metadata 1.17.3 and
+google.protobuf.runtime_version imports forcibly blocked succeeded for
+tensorflow_datasets 4.9.3, prismatic, and
+experiments.robot.openvla_utils.get_vla.
+
+Recommendation: install tensorflow-metadata 1.17.3 with explicit pins on
+protobuf 4.25.5 and tfds 4.9.3, then verify, then perform a reversible shim
+test before permanent shim removal. The two FastAPI/OpenTelemetry pip-check
+conflicts are separate, are not on the verified get_vla import path, and are
+not resolved in this stage.
+
+
+1. CURRENT VERIFIED STATE (re-checked before and after the dry runs)
+--------------------------------------------------------------------
+python:        3.10.21
+torch:         2.2.0+cu121
+torchvision:   0.17.0+cu121
+torchaudio:    2.2.0+cu121
+CUDA (torch):  12.1
+cuda_available: True
+GPU:           NVIDIA A100-PCIE-40GB (1 device)
+
+Installed versions after all dry runs (unchanged):
+  protobuf==4.25.5
+  tensorflow==2.15.0
+  tensorflow-datasets==4.9.3
+  tensorflow-metadata==1.21.0
+  absl-py==2.5.1
+  googleapis-common-protos==1.62.0
+  opentelemetry-api==1.21.0
+  opentelemetry-sdk==1.21.0
+  opentelemetry-proto==1.21.0
+  opentelemetry-exporter-otlp-common==0.66b1
+  wandb==0.16.6
+  fastapi==0.162.0
+  transformers==4.40.1 (moojink fork, commit bc339d9ad707454c0c115970db43c260067c61ab)
+  dlimp==0.0.1 (moojink fork, commit 040105d256bd28866cc6620621a3d5f7b6b91b46)
+  openvla-oft==0.0.1 (editable at /home/shrutiw/projects/openvla-oft)
+
+pip check (exit 1):
+  fastapi 0.162.0 has requirement opentelemetry-api>=1.44.0, but you have
+  opentelemetry-api 1.21.0.
+  opentelemetry-exporter-otlp-common 0.66b1 has requirement
+  opentelemetry-sdk~=1.45.1, but you have opentelemetry-sdk 1.21.0.
+
+Temporary shim (untouched):
+  /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py
+  size 354 bytes, mtime 2026-10-26 12:28:03 +0530
+  sha256 08bce5daecf2c217e2980505f277fbb6f2b4b1c5ef2c5faa43f9322e4c21fa50
+
+
+2. DECLARED METADATA AND REPOSITORY REQUIREMENTS
+------------------------------------------------
+Repository declarations (pyproject.toml):
+  protobuf                      unpinned
+  torch==2.2.0
+  torchvision==0.17.0
+  torchaudio==2.2.0
+  transformers @ git+https://github.com/moojink/transformers-openvla-oft.git
+  wandb                         unpinned
+  tensorflow==2.15.0
+  tensorflow_datasets==4.9.3
+  tensorflow_graphics==2021.12.3
+  dlimp @ git+https://github.com/moojink/dlimp_openvla
+  fastapi                       unpinned
+(no setup.py and no requirements.txt at repository root)
+
+Installed metadata:
+  tensorflow 2.15.0:
+    protobuf (!=4.21.0, !=4.21.1, !=4.21.2, !=4.21.3, !=4.21.4, !=4.21.5,
+              <5.0.0dev, >=3.20.3)
+  tensorflow-datasets 4.9.3:
+    protobuf >=3.20
+    tensorflow-metadata          (no version constraint)
+  tensorflow-metadata 1.21.0:
+    absl-py<3.0.0,>=0.9
+    protobuf<=6.32,>=4.21.6      (python_version < 3.11)
+    protobuf>=4.25.2             (python_version >= 3.11)
+    googleapis-common-protos<2,>=1.56.4 (python_version >= 3.11)
+
+Consequence: TF 2.15 caps protobuf below 5.0, while tf-metadata 1.21.0's
+generated proto files use google.protobuf.runtime_version, which is only
+provided natively from protobuf 5.26 onward. The shim bridges that gap.
+
+
+3. TENSORFLOW-METADATA RELEASE MATRIX
+-------------------------------------
+Wheels were downloaded in memory from PyPI and inspected with zipfile.
+"runtime_version imports" counts exact
+`from google.protobuf import runtime_version` lines in tensorflow_metadata/proto/*.py.
+
+  version   protobuf constraint (Python 3.10)   runtime_version imports  works with 4.25.5?
+  1.14.0    <4.21,>=3.20.3                      0                       NO
+  1.15.0    <4.21,>=3.20.3                      0                       NO
+  1.16.0    <4.21,>=3.20.3                      0                       NO
+  1.17.0    <4.22,>=4.21.6                      0                       NO
+  1.17.1    <4.22,>=4.21.6                      0                       NO
+  1.17.2    <4.22,>=4.21.6                      0                       NO
+  1.17.3    <=6.32,>=4.21.6                     0                       YES
+  1.21.0    <=6.32,>=4.21.6                     7                       YES, but needs shim
+
+  1.18.0, 1.19.0, 1.20.0: HTTP 404 on PyPI (not published).
+  Latest 1.17.x on PyPI is 1.17.3.
+
+Key finding: 1.17.3 is the first release that both (a) permits protobuf 4.25.5
+on Python 3.10 and (b) contains no runtime_version imports.
+
+
+4. CANDIDATE DRY RUNS (no changes applied)
+------------------------------------------
+All commands were run with the environment's Python:
+  /home/shrutiw/miniconda3/envs/openvla_oft/bin/python -m pip install --dry-run ...
+
+Candidate A (the exact combination requested):
+  'tensorflow-metadata==1.14.0' 'protobuf==4.25.5' 'tensorflow-datasets==4.9.3'
+Result: ERROR: ResolutionImpossible
+  The user requested protobuf==4.25.5
+  tensorflow-metadata 1.14.0 depends on protobuf<4.21 and >=3.20.3
+Artifact: pip_dryrun_A_tfmeta_1_14_0.txt
+
+Candidate B (1.14.0 alone, to see what the resolver would do):
+  'tensorflow-metadata==1.14.0'
+Result: Would install absl-py-1.4.0 protobuf-3.20.3 tensorflow-metadata-1.14.0
+Artifact: pip_dryrun_B_tfmeta_only.txt
+
+Candidate C (1.17.3 with protobuf 4.21.6):
+  'tensorflow-metadata==1.17.3' 'protobuf==4.21.6' 'tensorflow-datasets==4.9.3'
+Result: Would install protobuf-4.21.6 tensorflow-metadata-1.17.3
+Artifact: pip_dryrun_C_tfmeta_1_17_3.txt
+
+Candidate D (same as C plus preserved pins):
+  'tensorflow-metadata==1.17.3' 'protobuf==4.21.6' 'tensorflow-datasets==4.9.3'
+  'googleapis-common-protos==1.62.0' 'opentelemetry-proto==1.21.0' 'wandb==0.16.6'
+Result: Would install protobuf-4.21.6 tensorflow-metadata-1.17.3
+Artifact: pip_dryrun_D_tfmeta_1_17_3_pins.txt
+
+Candidate E (1.17.3 alone, keeping installed protobuf):
+  'tensorflow-metadata==1.17.3'
+Result: Would install tensorflow-metadata-1.17.3
+Artifact: pip_dryrun_E_tfmeta_only.txt
+JSON: pip_dryrun_E_report.json (install set: exactly tensorflow-metadata 1.17.3)
+
+Candidate F (1.14.0 fallback with protobuf 3.20.3):
+  'tensorflow-metadata==1.14.0' 'protobuf==3.20.3' 'tensorflow-datasets==4.9.3'
+  'googleapis-common-protos==1.62.0' 'opentelemetry-proto==1.21.0' 'wandb==0.16.6'
+Result: Would install absl-py-1.4.0 protobuf-3.20.3 tensorflow-metadata-1.14.0
+Artifact: pip_dryrun_F_tfmeta_1_14_0_fallback.txt
+
+Candidate G (recommended exact command):
+  'tensorflow-metadata==1.17.3' 'protobuf==4.25.5' 'tensorflow-datasets==4.9.3'
+Result: Would install tensorflow-metadata-1.17.3
+  - protobuf==4.25.5: already satisfied
+  - tensorflow-datasets==4.9.3: already satisfied
+  - absl-py 2.5.1: already satisfied (1.17.3 requires <3.0.0,>=0.9)
+Artifact: pip_dryrun_G_recommended.txt
+JSON: pip_dryrun_G_recommended_report.json (install set: exactly
+      tensorflow-metadata 1.17.3)
+
+Transitive dependency conclusion for G:
+  Only tensorflow-metadata changes. No protobuf, tfds, absl-py, googleapis,
+  opentelemetry, wandb, torch, transformers, dlimp, or openvla-oft change is
+  proposed by the resolver.
+
+Important: pip's resolver does not prove runtime compatibility. Section 5
+provides import-level runtime evidence.
+
+
+5. RUNTIME_VERSION IMPORT ANALYSIS
+----------------------------------
+5.1 Installed importers
+    A site-packages grep for
+      `from google.protobuf import runtime_version`
+    (excluding the shim file itself) found exactly:
+      tensorflow_metadata/proto/v0/metric_pb2.py
+      tensorflow_metadata/proto/v0/problem_statement_pb2.py
+      tensorflow_metadata/proto/v0/path_pb2.py
+      tensorflow_metadata/proto/v0/schema_pb2.py
+      tensorflow_metadata/proto/v0/anomalies_pb2.py
+      tensorflow_metadata/proto/v0/derived_feature_pb2.py
+      tensorflow_metadata/proto/v0/statistics_pb2.py
+    No other installed package imports google.protobuf.runtime_version.
+    (Occurrences of the string "runtime_version" in torch, numpy, diffusers,
+    tensorflow, and opentelemetry are unrelated APIs, not protobuf imports.)
+
+5.2 Candidate wheel
+    tensorflow_metadata-1.17.3-py3-none-any.whl (31,540 bytes) contains
+    ZERO `from google.protobuf import runtime_version` imports under
+    tensorflow_metadata/proto/*.py.
+
+5.3 Isolated shadow-import test
+    The 1.17.3 wheel was downloaded and extracted to
+      /tmp/tfmeta_1173_shrutiw
+    (outside site-packages; no installation). Then:
+      PYTHONPATH=/tmp/tfmeta_1173_shrutiw <env-python> ...
+    with a sys.meta_path finder that raises ImportError for
+    `google.protobuf.runtime_version`, i.e. the shim is forcibly unusable.
+
+    Result:
+      tensorflow_metadata file: /tmp/tfmeta_1173_shrutiw/tensorflow_metadata/__init__.py
+      schema_pb2: ok
+      tfds: 4.9.3
+      prismatic: /home/shrutiw/projects/openvla-oft/prismatic/__init__.py
+      get_vla import: ok
+
+    This is strong evidence that the tensorflow_datasets -> tensorflow_metadata
+    -> prismatic -> get_vla import chain does not require the shim when
+    1.17.3 is present.
+
+    Caveat: this test shadowed the installed 1.21.0 files via PYTHONPATH; it
+    did not uninstall 1.21.0. It also did not exercise every possible code path
+    (e.g. vla-scripts/deploy.py, full dataset construction, training).
+
+
+6. FASTAPI / OPENTELEMETRY CONFLICTS (separate, not changed)
+------------------------------------------------------------
+Current pip-check conflicts:
+  1) fastapi 0.162.0 requires opentelemetry-api>=1.44.0; installed 1.21.0.
+  2) opentelemetry-exporter-otlp-common 0.66b1 requires
+     opentelemetry-sdk~=1.45.1; installed 1.21.0.
+
+Evidence gathered:
+  - Repository grep: fastapi appears only in vla-scripts/deploy.py.
+    There are no opentelemetry/otlp references in the repository.
+  - Importing experiments.robot.openvla_utils.get_vla loads wandb but no
+    fastapi or opentelemetry modules (checked via sys.modules).
+  - The installed opentelemetry-exporter-otlp-common 0.66b1 has no installed
+    reverse dependency; it is required by the 1.45.1 OTLP exporter, not by
+    the installed 1.21.0 exporter.
+  - opentelemetry-proto 1.45.1 requires protobuf>=5.0, while TensorFlow 2.15
+    requires protobuf<5.0. Upgrading the OTel stack to satisfy fastapi 0.162
+    would therefore conflict with TF 2.15.
+  - fastapi 0.115.0 metadata has no opentelemetry requirement; 0.162.0 has an
+    unconditional opentelemetry-api>=1.44.0 requirement.
+
+Assessment:
+  These conflicts are metadata-level and are not on the verified get_vla /
+  prismatic / LIBERO import path. They remain real for vla-scripts/deploy.py
+  and for any future resolver operation. They are NOT resolved in this stage.
+  A later, separately approved evaluation could consider pinning an older
+  FastAPI (e.g. 0.115.0) and/or removing the orphan
+  opentelemetry-exporter-otlp-common, but neither was tested or applied here.
+
+
+7. RECOMMENDATION
+-----------------
+Recommended candidate: G
+  tensorflow-metadata 1.17.3, with explicit pins on the already-installed
+  protobuf 4.25.5 and tensorflow-datasets 4.9.3.
+
+Exact installation command for a later, separately approved stage
+(NOT executed):
+  /home/shrutiw/miniconda3/envs/openvla_oft/bin/python -m pip install \
+    'tensorflow-metadata==1.17.3' 'protobuf==4.25.5' 'tensorflow-datasets==4.9.3'
+
+Expected changes:
+  tensorflow-metadata: 1.21.0 -> 1.17.3
+  Everything else: unchanged (protobuf 4.25.5, tfds 4.9.3, absl-py 2.5.1,
+  googleapis-common-protos 1.62.0, all opentelemetry 1.21.0 packages,
+  wandb 0.16.6, torch stack, transformers fork, dlimp, openvla-oft).
+
+Why not 1.14.0:
+  It cannot coexist with protobuf 4.25.5 (requires protobuf<4.21). Its only
+  resolver-valid fallback downgrades protobuf to 3.20.3 and absl-py to 1.4.0,
+  which is a larger and less desirable change.
+
+Risks:
+  - tensorflow-metadata 1.17.3 is older than 1.21.0; some APIs could differ.
+    The import-level test passed, but full dataset construction was not run.
+  - tensorflow-datasets leaves tensorflow-metadata unpinned, so a future
+    `pip install -U` could reinstall 1.21.0 and reintroduce the shim
+    dependency. A durable solution should keep the pin in future install
+    commands or use an external constraints file. No repository file was
+    changed in this stage.
+  - pip check after installation is expected to still report the two
+    FastAPI/OTel conflicts; it should not report any new tf-metadata/protobuf
+    conflict.
+  - The shim is still present and remains a non-package file in site-packages
+    until a later approved cleanup.
+
+Shim removal conclusion:
+  The evidence supports removing the temporary shim AFTER installing
+  1.17.3, because:
+    (a) only tensorflow_metadata 1.21.0 imports google.protobuf.runtime_version;
+    (b) the 1.17.3 wheel has zero such imports;
+    (c) the isolated test with runtime_version imports blocked passed.
+  However, final removal should be gated on a post-install reversible test
+  (rename the shim aside, run the import checks, restore on failure). That
+  test is necessary because the isolated test shadowed rather than uninstalled
+  1.21.0. No further dependency investigation is required beyond that check.
+
+
+8. POST-INSTALL VERIFICATION COMMANDS (for a later stage)
+---------------------------------------------------------
+  PY=/home/shrutiw/miniconda3/envs/openvla_oft/bin/python
+  cd /home/shrutiw/projects/openvla-oft
+
+  $PY -c "import google.protobuf; print(google.protobuf.__version__)"
+  $PY -c "import tensorflow_metadata; print(tensorflow_metadata.__file__)"
+  $PY -c "from tensorflow_metadata.proto.v0 import schema_pb2; print('schema_pb2 ok')"
+  $PY -c "import tensorflow_datasets as tfds; print(tfds.__version__)"
+  $PY -c "import prismatic; print(prismatic.__file__)"
+  $PY -c "from experiments.robot.openvla_utils import get_vla; print('get_vla import ok')"
+  $PY -m pip check
+
+Reversible shim test (only after the install is separately approved):
+  SHIM=/home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages/google/protobuf/runtime_version.py
+  mv "$SHIM" "$SHIM.disabled"
+  # rerun the import checks above
+  # if all pass: rm "$SHIM.disabled"
+  # if any fail: mv "$SHIM.disabled" "$SHIM"
+
+
+9. APPROVAL GATE
+----------------
+No installation was executed. The recommended command in section 7 is
+provided only for a later, explicitly approved stage.
+
+Do not proceed with:
+  - installing tensorflow-metadata 1.17.3,
+  - removing or renaming the shim,
+  - changing FastAPI or OpenTelemetry packages,
+  - downloading model weights or running inference
+until separate approval is given.
+
+
+10. LIMITATIONS
+---------------
+  - No package was installed, so the actual post-install environment was not
+    observed. The 1.17.3 evidence is from wheel inspection plus a shadow-import
+    test.
+  - The isolated test used PYTHONPATH shadowing; the installed 1.21.0
+    dist-info was still present.
+  - No full LIBERO dataset construction, model loading, or inference was run.
+  - pip check cannot validate a hypothetical environment; only the current
+    installed state was checked.
+  - The 1.17.3 candidate was tested on Python 3.10 only; the Python >=3.11
+    branch of its metadata is irrelevant here.
+  - FastAPI/OTel options (e.g. fastapi 0.115.0, removing otlp-common) were
+    assessed from metadata and repository usage only; they were not dry-run
+    or tested.
+  - PyPI metadata can change; version constraints quoted here are from
+    2026-10-26.
+
+
+APPENDIX: ARTIFACTS IN THIS REPORT DIRECTORY
+--------------------------------------------
+  pip_dryrun_A_tfmeta_1_14_0.txt
+  pip_dryrun_B_tfmeta_only.txt
+  pip_dryrun_C_tfmeta_1_17_3.txt
+  pip_dryrun_D_tfmeta_1_17_3_pins.txt
+  pip_dryrun_E_tfmeta_only.txt
+  pip_dryrun_E_report.json
+  pip_dryrun_F_tfmeta_1_14_0_fallback.txt
+  pip_dryrun_G_recommended.txt
+  pip_dryrun_G_recommended_report.json
+  pip_dryrun_E_report_console.txt (empty; --quiet suppressed console output)
+  pip_dryrun_G_report_console.txt (empty; --quiet suppressed console output)
+
+Temporary test extraction (outside the environment, not installed):
+  /tmp/tfmeta_1173_shrutiw
+
+Temporary files used to capture import exit codes during the earlier
+current-state check:
+  /tmp/_prism.out, /tmp/_prism.err, /tmp/_gv.out, /tmp/_gv.err

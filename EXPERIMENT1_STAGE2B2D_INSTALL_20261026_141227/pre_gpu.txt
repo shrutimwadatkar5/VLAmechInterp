@@ -1,0 +1,3 @@
+=== PRE: gpu ===
+2.2.0+cu121 0.17.0+cu121 2.2.0+cu121
+12.1 True NVIDIA A100-PCIE-40GB

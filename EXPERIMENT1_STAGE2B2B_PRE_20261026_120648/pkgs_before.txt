@@ -1,0 +1,152 @@
+WARNING: Package(s) not found: tensorflow-graphics
+Name: tensorflow
+Version: 2.15.0
+Summary: TensorFlow is an open source machine learning framework for everyone.
+Home-page: https://www.tensorflow.org/
+Author: Google Inc.
+Author-email: packages@tensorflow.org
+License: Apache 2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: absl-py, astunparse, flatbuffers, gast, google-pasta, grpcio, h5py, keras, libclang, ml-dtypes, numpy, opt-einsum, packaging, protobuf, setuptools, six, tensorboard, tensorflow-estimator, tensorflow-io-gcs-filesystem, termcolor, typing-extensions, wrapt
+Required-by: dlimp, openvla-oft
+---
+Name: protobuf
+Version: 3.20.3
+Summary: Protocol Buffers
+Home-page: https://developers.google.com/protocol-buffers/
+Author: 
+Author-email: 
+License: BSD-3-Clause
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: 
+Required-by: googleapis-common-protos, opentelemetry-proto, openvla-oft, tensorboard, tensorflow, tensorflow-datasets, tensorflow-metadata, wandb
+---
+Name: tensorflow-datasets
+Version: 4.9.10
+Summary: tensorflow/datasets is a library of datasets ready to use with TensorFlow.
+Home-page: https://github.com/tensorflow/datasets
+Author: Google Inc.
+Author-email: packages@tensorflow.org
+License: Apache 2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: absl-py, array_record, dm-tree, etils, immutabledict, numpy, promise, protobuf, psutil, pyarrow, requests, simple_parsing, tensorflow-metadata, termcolor, toml, tqdm, wrapt
+Required-by: dlimp, openvla-oft
+---
+Name: tensorflow-metadata
+Version: 1.21.0
+Summary: Library and standards for schema and statistics.
+Home-page: 
+Author: Google Inc.
+Author-email: tensorflow-extended-dev@googlegroups.com
+License: Apache 2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: absl-py, protobuf
+Required-by: tensorflow-datasets
+---
+Name: googleapis-common-protos
+Version: 1.76.0
+Summary: Common protobufs used in Google APIs
+Home-page: 
+Author: 
+Author-email: Google LLC <googleapis-packages@google.com>
+License-Expression: Apache-2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: protobuf
+Required-by: opentelemetry-exporter-otlp-proto-http
+---
+Name: opentelemetry-proto
+Version: 1.45.1
+Summary: OpenTelemetry Python Proto
+Home-page: https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-proto
+Author: 
+Author-email: OpenTelemetry Authors <cncf-opentelemetry-contributors@lists.cncf.io>
+License-Expression: Apache-2.0
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: protobuf
+Required-by: opentelemetry-exporter-otlp-proto-common, opentelemetry-exporter-otlp-proto-http
+---
+Name: wandb
+Version: 0.31.0
+Summary: A CLI and library for interacting with the Weights & Biases API.
+Home-page: 
+Author: 
+Author-email: Weights & Biases <support@wandb.com>
+License: MIT License
+        
+        Copyright (c) 2021 Weights and Biases, Inc.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: click, cwevals, opentelemetry-api, opentelemetry-exporter-otlp-proto-http, opentelemetry-sdk, packaging, platformdirs, protobuf, pydantic, pyyaml, requests, typing-extensions, xxhash
+Required-by: openvla-oft
+---
+Name: transformers
+Version: 4.40.1
+Summary: State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+Home-page: https://github.com/huggingface/transformers
+Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+Author-email: transformers@huggingface.co
+License: Apache 2.0 License
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, requests, safetensors, tokenizers, tqdm
+Required-by: openvla-oft, peft
+---
+Name: dlimp
+Version: 0.0.1
+Summary: 
+Home-page: 
+Author: 
+Author-email: 
+License: 
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Requires: tensorflow, tensorflow_datasets
+Required-by: openvla-oft
+---
+Name: openvla-oft
+Version: 0.0.1
+Summary: Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success
+Home-page: https://github.com/moojink/openvla-oft
+Author: 
+Author-email: Moo Jin Kim <moojink@stanford.edu>, Chelsea Finn <cbfinn@cs.stanford.edu>, Percy Liang <pliang@cs.stanford.edu>
+License: MIT License
+        
+        Copyright (c) 2025 Moo Jin Kim, Chelsea Finn, Percy Liang.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Location: /home/shrutiw/miniconda3/envs/openvla_oft/lib/python3.10/site-packages
+Editable project location: /home/shrutiw/projects/openvla-oft
+Requires: accelerate, diffusers, dlimp, draccus, einops, fastapi, huggingface_hub, imageio, json-numpy, jsonlines, matplotlib, peft, protobuf, rich, sentencepiece, tensorflow, tensorflow_datasets, tensorflow_graphics, timm, tokenizers, torch, torchaudio, torchvision, transformers, uvicorn, wandb
+Required-by: 
